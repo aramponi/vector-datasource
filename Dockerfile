@@ -28,3 +28,4 @@ RUN pip install -r requirements.txt
 RUN pip install -e .
 
 CMD ["/bin/bash", "scripts/docker_boostrap.sh"]
+#docker run --link tileserver_postgis_1:postgres --net tileserver_default -v <absolutePath>:/usr/src/app/import -e METRO_EXTRACT_NAME=delaware -e POSTGRES_PASSWORD=osm -it vector-datasource
