@@ -12,12 +12,11 @@ psql -h "${POSTGRES_HOST:-postgres}" \
      -d "${POSTGRES_DB:-osm}" \
      -c "create extension if not exists postgis; create extension if not exists hstore;"
 
-/usr/bin/wget https://s3.amazonaws.com/metro-extracts.mapzen.com/${METRO_EXTRACT_NAME}.osm.pbf
 osm2pgsql --slim \
           --cache 1024 \
           --style osm2pgsql.style \
           --hstore-all \
-          ${METRO_EXTRACT_NAME}.osm.pbf \
+          import/${METRO_EXTRACT_NAME}.osm.pbf \
           -H "${POSTGRES_HOST:-postgres}" \
           -P "${POSTGRES_PORT:-5432}" \
           -U "${POSTGRES_USER:-osm}" \
