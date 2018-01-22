@@ -1,4 +1,6 @@
 -- wof
+create extension if not exists postgis; 
+create extension if not exists hstore;
 
 CREATE TABLE wof_neighbourhood_placetype (
   placetype_code SMALLINT PRIMARY KEY,
